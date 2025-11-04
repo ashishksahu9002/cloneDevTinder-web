@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import NavBar from "./Header/NavBar";
 import Footer from "./Footer/Footer";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
@@ -10,13 +10,11 @@ import { addUser } from "../utils/userSlice";
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const userData = useSelector((store) => store.user);
 
   const fetchUser = async () => {
     if (userData) return;
-    if (location.pathname === "/login") return;
     try {
       const res = await axios.get(BASE_URL + "/profile/view", {
         withCredentials: true,
@@ -37,11 +35,13 @@ const Body = () => {
   }, []);
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <NavBar />
-      <Outlet />
+      <main className="flex-1 my-6">
+        <Outlet />
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

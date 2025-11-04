@@ -5,7 +5,7 @@ import Test from "./components/Test";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Feed from "./components/Feed";
-import Profile from "./components/Profile";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (

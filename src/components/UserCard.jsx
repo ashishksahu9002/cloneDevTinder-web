@@ -5,8 +5,8 @@ const UserCard = ({ user }) => {
   const { firstName, lastName, about, skills } = user;
 
   return (
-    <div className="flex justify-center my-14">
-      <div className="card bg-base-400 w-96 shadow-xl">
+    <div className="flex justify-center">
+      <div className="card bg-base-300 w-96 shadow-xl">
         <figure>
           <img src={TEMP_IMG_URL} alt="User" />
         </figure>
